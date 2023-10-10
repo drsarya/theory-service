@@ -1,0 +1,6 @@
+server:
+  port: 8100
+
+url:
+  rating-service: http://localhost:8101
+  theory-service: http://localhost:8102
