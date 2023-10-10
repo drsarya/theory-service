@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package formula_rating;
+
+option java_package = "com.nils.gprc.formula_rating";
+option java_multiple_files = true;
+
+message FormulaRatingRequest {
+  int32 formula_id = 1;
+}
+
+message FormulaRatingResponse {
+  int32 formula_id = 1;
+  int32 rating = 2;
+}
+
+
+service CityScoreService {
+  // unary
+  rpc calculateCityScore(FormulaRatingRequest) returns (FormulaRatingResponse) {};
+}
