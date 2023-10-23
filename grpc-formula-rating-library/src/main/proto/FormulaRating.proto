@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+option java_multiple_files = true;
+package generated.rating.library;
+
+message FormulaRatingRequest {
+  int32 formula_id = 1;
+}
+
+message FormulaRatingResponse {
+  int32 formula_id = 1;
+  int64 rating = 2;
+}
+
+service FormulaRatingService {
+  rpc getFormulaRating(FormulaRatingRequest) returns (FormulaRatingResponse) {};
+  rpc addRating(FormulaRatingRequest) returns (FormulaRatingResponse) {};
+}

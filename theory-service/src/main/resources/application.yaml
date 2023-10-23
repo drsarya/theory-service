@@ -1,8 +1,0 @@
-server:
-  port: 8102
-  servlet:
-    context-path: /api/theory
-
-
-url:
-  rating-service: http://localhost:8100/api/rating
