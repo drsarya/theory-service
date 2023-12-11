@@ -1,11 +1,10 @@
-package com.example.ratingservicemaven.service;
+package com.example.theoryservice.service;
 
 import generated.rating.library.FormulaRatingRequest;
 import generated.rating.library.FormulaRatingResponse;
 import generated.rating.library.FormulaRatingServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
 @Component

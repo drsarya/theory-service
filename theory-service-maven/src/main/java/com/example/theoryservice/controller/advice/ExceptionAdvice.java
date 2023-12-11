@@ -1,6 +1,6 @@
-package com.example.ratingservicemaven.controller.advice;
+package com.example.theoryservice.controller.advice;
 
-import com.example.ratingservicemaven.model.basic.ErrorModel;
+import com.example.theoryservice.model.basic.ErrorModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

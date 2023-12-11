@@ -1,4 +1,4 @@
-package com.example.ratingservicemaven.model.basic;
+package com.example.theoryservice.model.basic;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;

@@ -1,7 +1,7 @@
-package com.example.ratingservicemaven.controller;
+package com.example.theoryservice.controller;
 
-import com.example.ratingservicemaven.model.FormulaModel;
-import com.example.ratingservicemaven.service.FormulaService;
+import com.example.theoryservice.model.FormulaModel;
+import com.example.theoryservice.service.FormulaService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

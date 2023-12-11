@@ -1,4 +1,4 @@
-package com.example.ratingservicemaven.model;
+package com.example.theoryservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
