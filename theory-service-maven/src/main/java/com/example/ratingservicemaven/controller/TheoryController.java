@@ -16,9 +16,21 @@ public class TheoryController {
         this.formulaService = formulaService;
     }
 
-
     @GetMapping("/{formulaId}")
     public FormulaModel getRating(@PathVariable Integer formulaId) {
         return formulaService.getFormulaById(formulaId);
+    }
+
+    @GetMapping("/delay/{formulaId}")
+    public FormulaModel getRatingWithDelay(@PathVariable Integer formulaId) throws InterruptedException {
+        System.out.println("Start get rating");
+        Thread.sleep(60_000);
+        return null;
+    }
+
+    @GetMapping("/exception/{formulaId}")
+    public FormulaModel getRatingWithException(@PathVariable Integer formulaId) {
+        System.out.println("Start get rating");
+        throw new IllegalArgumentException("Exception occured");
     }
 }
