@@ -1,6 +1,7 @@
 package com.example.statisticservice.service;
 
 import com.example.statisticservice.queue.model.StatisticModel;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class StatisticService {
         return formulaToStatistic.get(formulaId);
     }
 
+    @EventListener
     public void addStatistic(StatisticModel statisticModel) {
         formulaToStatistic.computeIfAbsent(statisticModel.getFormulaId(), k -> new ArrayList<>()).add(statisticModel);
     }
