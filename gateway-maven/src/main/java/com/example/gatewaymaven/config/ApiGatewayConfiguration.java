@@ -14,6 +14,9 @@ public class ApiGatewayConfiguration {
     @Value(value = "${url.theory-service}")
     private String theoryService;
 
+    @Value(value = "${url.statistic-service}")
+    private String statisticService;
+
     @Bean
     public RouteLocator gatewayRouter(RouteLocatorBuilder locatorBuilder) {
         return locatorBuilder
@@ -30,6 +33,12 @@ public class ApiGatewayConfiguration {
                             c.setName("theoryCircuitBreaker");
                         }))
                         .uri(theoryService))
+                .route(p -> p
+                        .path("/api/statistic/**")
+                        .filters(v -> v.circuitBreaker((c) -> {
+                            c.setName("statisticCircuitBreaker");
+                        }))
+                        .uri(statisticService))
                 .build();
     }
 }

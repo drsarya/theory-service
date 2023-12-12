@@ -1,3 +1,8 @@
+server:
+  port: 8103
+  servlet:
+    context-path: /api/statistic
+
 spring:
   kafka:
     consumer:

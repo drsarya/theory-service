@@ -1,6 +1,7 @@
 package com.example.statisticservice.queue.consumer;
 
 import com.example.statisticservice.queue.model.StatisticModel;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.context.ApplicationEventPublisher;
@@ -15,9 +16,11 @@ import org.springframework.stereotype.Component;
 public class MessageConsumerService {
 
     private final ApplicationEventPublisher eventPublisher;
+    private final ObjectMapper objectMapper;
 
-    public MessageConsumerService(ApplicationEventPublisher eventPublisher) {
+    public MessageConsumerService(ApplicationEventPublisher eventPublisher, ObjectMapper objectMapper) {
         this.eventPublisher = eventPublisher;
+        this.objectMapper = objectMapper;
     }
 
     /**
@@ -26,10 +29,11 @@ public class MessageConsumerService {
      * @param message the message represented by the string
      */
     @KafkaListener(topics = {"${settings.kafka.topic}"})
-    public void receive(ConsumerRecord<String, StatisticModel> message) {
+    public void receive(ConsumerRecord<String, String> message) {
         try {
             log.info("Message received [{}]", message);
-            eventPublisher.publishEvent(message.value());
+            StatisticModel statisticModel = objectMapper.readValue(message.value(), StatisticModel.class);
+            eventPublisher.publishEvent(statisticModel);
         } catch (Exception e) {
             log.error("Error proceed while publish event", e);
         }
