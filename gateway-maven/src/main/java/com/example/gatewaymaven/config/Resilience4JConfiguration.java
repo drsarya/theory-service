@@ -18,8 +18,7 @@ public class Resilience4JConfiguration {
     public Customizer<ReactiveResilience4JCircuitBreakerFactory> defaultCustomizer() {
         return factory -> factory.configureDefault(id -> new Resilience4JConfigBuilder(id)
                 .circuitBreakerConfig(CircuitBreakerConfig.custom()
-                        .slidingWindowSize(4)  // The size of the time window is 60 seconds
-                        .writableStackTraceEnabled(true)
+                        .slidingWindowSize(4)  // Number of requests for analysis
                         .permittedNumberOfCallsInHalfOpenState(5) // The number of normal calls allowed in the half open state
                         .failureRateThreshold(50) // When the call failure rate reaches 50% within the unit time window, the circuit breaker will be started
                         .waitDurationInOpenState(Duration.ofSeconds(10)) // It takes 10 seconds for the circuit breaker to change from open state to half open state

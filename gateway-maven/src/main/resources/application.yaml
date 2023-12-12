@@ -1,8 +1,7 @@
 server:
   port: 8100
-
 url:
-  rating-service: http://localhost:8101
+  rating-service: grpc://localhost:8101
   theory-service: http://localhost:8102
   statistic-service: http://localhost:8103
 

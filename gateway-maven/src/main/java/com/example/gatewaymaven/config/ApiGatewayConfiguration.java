@@ -22,12 +22,6 @@ public class ApiGatewayConfiguration {
         return locatorBuilder
                 .routes()
                 .route(p -> p
-                        .path("/api/rating/**")
-                        .filters(v -> v.circuitBreaker((c) -> {
-                            c.setName("ratingCircuitBreaker");
-                        }))
-                        .uri(ratingService))
-                .route(p -> p
                         .path("/api/theory/**")
                         .filters(v -> v.circuitBreaker((c) -> {
                             c.setName("theoryCircuitBreaker");

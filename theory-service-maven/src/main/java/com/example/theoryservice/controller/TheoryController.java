@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/formulas")
 public class TheoryController {
+
     private final FormulaService formulaService;
 
     public TheoryController(FormulaService formulaService) {
@@ -17,20 +18,20 @@ public class TheoryController {
     }
 
     @GetMapping("/{formulaId}")
-    public FormulaModel getRating(@PathVariable Integer formulaId) {
+    public FormulaModel getFormulaInfo(@PathVariable Integer formulaId) {
         return formulaService.getFormulaById(formulaId);
     }
 
-    @GetMapping("/delay/{formulaId}")
-    public FormulaModel getRatingWithDelay(@PathVariable Integer formulaId) throws InterruptedException {
+    @GetMapping("/delay")
+    public FormulaModel getFormulaInfoWithDelay() throws InterruptedException {
         System.out.println("Start get rating");
         Thread.sleep(60_000);
         return null;
     }
 
-    @GetMapping("/exception/{formulaId}")
-    public FormulaModel getRatingWithException(@PathVariable Integer formulaId) {
+    @GetMapping("/exception")
+    public FormulaModel getFormulaInfoWithException() {
         System.out.println("Start get rating");
-        throw new IllegalArgumentException("Exception occured");
+        throw new IllegalArgumentException("Throw new exception");
     }
 }
