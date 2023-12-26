@@ -10,6 +10,8 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       bootstrap-servers: localhost:9092
       client-id: theory-service-client
+      properties:
+        linger.ms : 5000
 
 settings:
   kafka:
