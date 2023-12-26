@@ -11,8 +11,13 @@ spring:
       bootstrap-servers: localhost:9092
       client-id: theory-service-client
       properties:
-        linger.ms : 60_000
+        linger.ms : 5_000
       batch-size: 500
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/theory}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:postgres}
 
 settings:
   kafka:
