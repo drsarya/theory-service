@@ -11,7 +11,8 @@ spring:
       bootstrap-servers: localhost:9092
       client-id: theory-service-client
       properties:
-        linger.ms : 5000
+        linger.ms : 60_000
+      batch-size: 500
 
 settings:
   kafka:
